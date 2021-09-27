@@ -38,8 +38,9 @@
                                 <div class="col-12">
                                     <img id="img-photo" src="./asset/example.jpg" class="rounded img-fluid" alt="Select your photo.">
                                 </div>
-                                <div class="col-12 d-grid">
+                                <div class="col-12 d-grid gap-2">
                                     <button type="button" class="btn btn-light" id="button-select-photo"><b>Select Photo</b></button>
+                                    <button type="button" class="btn btn-danger" id="button-demo"><b>DEMO</b></button>
                                 </div>
                             </div>
                         </div>
@@ -48,8 +49,23 @@
                                 <div class="col-12">
                                     <h1>Reader</h1>
                                 </div>
+                                <div class="col-12">
+                                    <ul style="padding: 0.1 rem;">
+                                        <li id="photo-machine">Machine : </li>
+                                        <li id="photo-f-number">F-number :</li>
+                                        <li id="photo-et">Exposure Time : </li>
+                                        <li id="photo-iso">ISO </li>
+                                        <li id="photo-fl">Focal Length : </li>
+                                    </ul>
+                                </div>
+                                <div class="col-12">
+                                    <!-- <h3>Metadata :</h3>
+                                    <p id="p-metadata"></p> -->
+                                </div>
+                                <div class="col-12 d-grid gap-2">
+                                    <button type="button" class="btn btn-light" id="button-copy-text"><b>Copy Text</b></button>
+                                </div>
                             </div>
-                            <h1>Another!</h1>
                         </div>
                     </div>
                 </div>
@@ -60,4 +76,6 @@
             </footer>
         </div>
     </body>
+    <script src="../node_modules/exif-js/exif.js"></script>
+    <script src="./script/generator.js"></script>
 </html>

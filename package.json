@@ -4,6 +4,7 @@
   "description": "This is GraphyArty!",
   "main": "main.js",
   "scripts": {
+    "dev": "electron .",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
@@ -19,7 +20,8 @@
     "electron": "^15.0.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "exif-js": "^2.3.0"
   },
   "config": {
     "forge": {
