@@ -38,7 +38,7 @@ const elementReplacer = (metadata , item) =>{
             break;
         
         case 'photo-et':
-            if (metadata.ExposureTime.numerator == undefined){
+            if (metadata.ExposureTime == undefined || metadata.ExposureTime == null){
                 temp_value = 'Exposure Time :';
             }else{
                 temp_value = `Exposure Time : ${metadata.ExposureTime.numerator}/${metadata.ExposureTime.denominator}`;
@@ -46,7 +46,7 @@ const elementReplacer = (metadata , item) =>{
             break;
         
         case 'photo-iso':
-            if (metadata.ExposureTime.numerator == undefined){
+            if (metadata.ISOSpeedRatings == undefined){
                 temp_value = 'ISO';
             }else{
                 temp_value = `ISO ${metadata.ISOSpeedRatings}`;
@@ -54,7 +54,7 @@ const elementReplacer = (metadata , item) =>{
             break;
         
         case 'photo-fl':
-            if (metadata.ExposureTime.numerator == undefined){
+            if (metadata.FocalLength == undefined){
                 temp_value = 'Focal Length :';
             }else{
                 temp_value = `Focal Length : ${parseInt(metadata.FocalLength)} mm`;
