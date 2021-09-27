@@ -1,12 +1,10 @@
 // Reader
-let meta; // DEV
 const dataReader = (img_object) =>{
+    img_object.exifdata = null;
     EXIF.getData(img_object, function() {
-        let allMetaData = EXIF.getAllTags(this);
+        let allMetaData = EXIF.getAllTags(img_object);
         metadata_items.forEach((item) =>{elementReplacer(allMetaData,item);});
-
-        meta = allMetaData; //DEV
-        console.log(allMetaData);
+        console.log(allMetaData); // DEV
     });
 }
 
@@ -50,5 +48,37 @@ const triggerLoad = ()=>{
     dataReader(img);
 }
 
+// DOM Listener
+let new_src, event_src_changed;
+const button_select_photo = document.getElementById('button-select-photo');
+button_select_photo.addEventListener('click', () => {
+    // window.api_dev.send('toMain','here');
+    window.api_dev.send('chooseFile');
+});
+
 const button_demo = document.getElementById('button-demo');
 button_demo.addEventListener('click', ()=> triggerLoad());
+
+// interval
+const checkSrc = (checker) =>{
+    const current_src = document.getElementById('img-photo').src;
+    if (checker !== current_src){
+        let img = document.getElementById('img-photo');
+        img.src = checker;
+        clearInterval(event_src_changed);
+    }
+}
+
+const noticeMe = (msg)=>{
+    console.log(msg);
+}
+const img = document.getElementById('img-photo');
+// img.addEventListener('load', dataReader(img));
+img.addEventListener('load', noticeMe('hey'));
+
+window.api_dev.receive("chosenFile", (base64) => {
+    const src = `${base64}`
+    let img = document.getElementById('img-photo');
+    img.setAttribute('src',src);
+    // noticeMe('hey');
+});

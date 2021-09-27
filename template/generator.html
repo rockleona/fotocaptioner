@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-        <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src 'self'; script-src 'self'">
+        <meta http-equiv="X-Content-Security-Policy" content="img-src 'self' data:; default-src 'self'; script-src 'self'">
 
         <!-- Bootstrap -->
         <link href="./style/bootstrap/bootstrap.min.css" rel="stylesheet"></link>
@@ -13,13 +13,13 @@
         <!-- add -->
         <link href="./style/style.css" rel="stylesheet"></link>
 
-        <title>GraphyArty</title>
+        <title>FotoCaptioner</title>
     </head>
     <body class="d-flex h-100 text-white bg-dark">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="mb-auto text-center">
                 <div>
-                    <h3 class="float-md-start mb-0">GraphyArty</h3>
+                    <h3 class="float-md-start mb-0">FotoCaptioner</h3>
                     <nav class="nav nav-masthead justify-content-center float-md-end">
                         <a class="nav-link" aria-current="page" href="./index.html">Landing</a>
                         <a class="nav-link active" aria-current="page" href="./generator.html">Generator</a>
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-12 d-grid gap-2">
                                     <button type="button" class="btn btn-light" id="button-select-photo"><b>Select Photo</b></button>
-                                    <button type="button" class="btn btn-danger" id="button-demo"><b>DEMO</b></button>
+                                    <button type="button" class="btn btn-danger" id="button-demo"><b>Read Photo and Generate Text</b></button>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                                     <h1>Reader</h1>
                                 </div>
                                 <div class="col-12">
-                                    <ul style="padding: 0.1 rem;">
+                                    <ul>
                                         <li id="photo-machine">Machine : </li>
                                         <li id="photo-f-number">F-number :</li>
                                         <li id="photo-et">Exposure Time : </li>
@@ -77,5 +77,5 @@
         </div>
     </body>
     <script src="../node_modules/exif-js/exif.js"></script>
-    <script src="./script/generator.js"></script>
+    <script src="./script/generator-frontend.js"></script>
 </html>
