@@ -10,3 +10,7 @@
 li {
     margin: 0.1 rem;
 }
+
+#toast-container{
+    z-index: 11;
+}
