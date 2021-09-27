@@ -15,9 +15,9 @@
 
         <title>GraphyArty</title>
     </head>
-    <body class="d-flex h-100 text-center text-white bg-dark">
+    <body class="d-flex h-100 text-white bg-dark">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <header class="mb-auto">
+            <header class="mb-auto text-center">
                 <div>
                     <h3 class="float-md-start mb-0">GraphyArty</h3>
                     <nav class="nav nav-masthead justify-content-center float-md-end">
@@ -28,20 +28,35 @@
             </header>
             
             <main>
-                <div class="container">
+                <div class="container text-left">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1>Here!</h1>
+                            <div class="row" id='container-selector'>
+                                <div class="col-12">
+                                    <h1>Photo Loader</h1>
+                                </div>
+                                <div class="col-12">
+                                    <img id="img-photo" src="./asset/example.jpg" class="rounded img-fluid" alt="Select your photo.">
+                                </div>
+                                <div class="col-12 d-grid">
+                                    <button type="button" class="btn btn-light" id="button-select-photo"><b>Select Photo</b></button>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-12 col-lg-6">
+                            <div class="row" id='container-reader'>
+                                <div class="col-12">
+                                    <h1>Reader</h1>
+                                </div>
+                            </div>
                             <h1>Another!</h1>
                         </div>
                     </div>
                 </div>
             </main>
 
-            <footer class="mt-auto text-white-50">
-                <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+            <footer class="mt-auto text-white-50 text-center">
+                <p>Made by <a class="text-white" href="https://rockleona.github.io/intro">RockLeona</a> with ♥.</p>
             </footer>
         </div>
     </body>
