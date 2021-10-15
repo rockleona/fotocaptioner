@@ -14,3 +14,7 @@ li {
 #toast-container{
     z-index: 11;
 }
+
+#right-side-container{
+    height: auto;
+}

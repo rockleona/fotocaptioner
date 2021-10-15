@@ -30,7 +30,7 @@
             <main>
                 <div class="container text-left">
                     <div class="row">
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12 col-lg-8">
                             <div class="row" id='container-selector'>
                                 <div class="col-12">
                                     <h1>Photo Loader</h1>
@@ -44,26 +44,49 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6">
-                            <div class="row" id='container-reader'>
+                        <div class="col-12 col-lg-4" id="right-side-container">
+                            <div class="row gy-5 px-1">
                                 <div class="col-12">
-                                    <h1>Reader</h1>
+                                    <div class="row" id='container-reader'>
+                                        <div class="col-12">
+                                            <h1>Caption Config</h1>
+                                        </div>
+                                        <div class="col-12">
+                                            <form>
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text">Title</span>
+                                                    <input type="text" class="form-control" placeholder="What a beautiful pic!">
+                                                  </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Content</span>
+                                                    <textarea class="form-control" placeholder="What a beautiful pic!"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-12">
-                                    <ul>
-                                        <li id="photo-machine">Machine : </li>
-                                        <li id="photo-f-number">F-number :</li>
-                                        <li id="photo-et">Exposure Time : </li>
-                                        <li id="photo-iso">ISO </li>
-                                        <li id="photo-fl">Focal Length : </li>
-                                    </ul>
-                                </div>
-                                <div class="col-12">
-                                    <!-- <h3>Metadata :</h3>
-                                    <p id="p-metadata"></p> -->
-                                </div>
-                                <div class="col-12 d-grid gap-2">
-                                    <button type="button" class="btn btn-light" id="button-copy-text"><b>Copy Text</b></button>
+                                    <div class="row" id='container-reader'>
+                                        <div class="col-12">
+                                            <h1>Reader</h1>
+                                        </div>
+                                        <div class="col-12">
+                                            <ul>
+                                                <li id="photo-machine">Machine : </li>
+                                                <li id="photo-f-number">F-number :</li>
+                                                <li id="photo-et">Exposure Time : </li>
+                                                <li id="photo-iso">ISO </li>
+                                                <li id="photo-fl">Focal Length : </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-12">
+                                            <!-- <h3>Metadata :</h3>
+                                            <p id="p-metadata"></p> -->
+                                        </div>
+                                        <div class="col-12 d-grid gap-2">
+                                            <button type="button" class="btn btn-light" id="button-copy-text"><b>Copy Text</b></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -88,5 +111,7 @@
         </div>
     </body>
     <script src="../node_modules/exif-js/exif.js"></script>
-    <script src="./script/generator-frontend.js"></script>
+    <script src="./script/generator/frontend.js"></script>
+    <script src="./script/generator/photo_loader.js"></script>
+    <script src="./script/generator/copy_text.js"></script>
 </html>

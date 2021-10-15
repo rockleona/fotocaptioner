@@ -5,7 +5,8 @@ also this app also can read EXIF metadata from pictures (if avaliable).
 
 ## Wishing Pond Here
 
-I'm a newbie & amatuer 
+I'm a newbie & amatuer photographer.
+Open an issue for me and give me more suggestions.
 
 ## Quickstart
 

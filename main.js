@@ -15,7 +15,7 @@ function createWindow () {
     win.maximize();
     win.setMenuBarVisibility(false);
     win.loadFile('template/index.html');
-    // win.webContents.openDevTools();
+    win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
@@ -30,10 +30,6 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit();
 })
 
-ipcMain.on('toMain', (event, msg) => {
-  console.log(msg);
-});
-
 ipcMain.on("chooseFile", (event, arg) => {
   const result = dialog.showOpenDialog({
     properties: ["openFile"],
@@ -41,8 +37,10 @@ ipcMain.on("chooseFile", (event, arg) => {
   });
 
   result.then(({canceled, filePaths, bookmarks}) => {
-    const base64 = fs.readFileSync(filePaths[0]).toString('base64');
-    const src = `data:image/jpg;base64,${base64}`;
-    event.reply("chosenFile", src);
+    if(filePaths[0]){
+      const base64 = fs.readFileSync(filePaths[0]).toString('base64');
+      const src = `data:image/jpg;base64,${base64}`;
+      event.reply("chosenFile", src);
+    }
   });
 });

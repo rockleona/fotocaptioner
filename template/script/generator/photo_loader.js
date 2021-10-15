@@ -65,24 +65,7 @@ const elementReplacer = (metadata , item) =>{
     object_dom.innerHTML = temp_value;
 }
 
-// Trigger
-const triggerLoad = ()=>{
-    let img = document.getElementById('img-photo');
-    dataReader(img);
-}
-
-// DOM Listener
-let new_src, event_src_changed;
-const button_select_photo = document.getElementById('button-select-photo');
-button_select_photo.addEventListener('click', () => {
-    // window.api_dev.send('toMain','here');
-    window.api_dev.send('chooseFile');
-});
-
-const button_demo = document.getElementById('button-demo');
-button_demo.addEventListener('click', ()=> triggerLoad());
-
-// interval
+// ipcRenderer Receive
 const img = document.getElementById('img-photo');
 window.api_dev.receive("chosenFile", (base64) => {
     const src = `${base64}`
@@ -90,27 +73,3 @@ window.api_dev.receive("chosenFile", (base64) => {
     img.setAttribute('src',src);
 
 });
-
-//copy text
-
-const button_copy_text = document.getElementById('button-copy-text');
-const liveToast = document.getElementById('liveToast')
-if (button_copy_text) {
-    button_copy_text.addEventListener('click', function () {
-        copyText();
-        var toast = new bootstrap.Toast(liveToast);
-        toast.show();
-  })
-}
-
-const copyText = ()=>{
-    const object_dom_array = [];
-    let text = '';
-    metadata_items.forEach((item) => {
-        object_dom_array.push(document.getElementById(item));
-    })
-    object_dom_array.forEach((item) =>{
-        text += `${item.innerHTML}\n`;
-    })
-    navigator.clipboard.writeText(text);
-}
