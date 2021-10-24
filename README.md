@@ -3,7 +3,7 @@
 FotoCaptioner is a software that can easily generate captions for social media (e.g. Instagram, Facebook, Twitter), 
 also this app also can read EXIF metadata from pictures (if avaliable).
 
-## Wishing Pond Here
+## Wishing Pond 
 
 I'm a newbie & amatuer photographer.
 Open an issue for me and give me more suggestions.
