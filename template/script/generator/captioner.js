@@ -18,7 +18,7 @@ const createHashtag = () =>{
 
     hashtag_chip.appendChild(hashtag_chip_name);
     hashtag_chip.appendChild(closebutton);
-
+    
     hashtag_container.appendChild(hashtag_chip);
 
     document.getElementById("hashtag-text").value = '';
@@ -26,7 +26,6 @@ const createHashtag = () =>{
 
 const button_add_hashtag = document.getElementById("hashtag-add");
 button_add_hashtag.addEventListener('click',createHashtag);
-
 
 //copy text
 const button_copy_text = document.getElementById('button-copy-text');
@@ -102,3 +101,11 @@ const previewUpdate = () =>{
 
     toast_preview_text.innerText = text;
 }
+
+
+window.addEventListener('keypress', (event)=>{
+    if (document.activeElement.id == "hashtag-text" && event.key == "Enter") {
+        event.preventDefault();
+        button_add_hashtag.click();
+    }
+})
