@@ -1,6 +1,6 @@
 {
   "name": "fotocaptioner",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This is FotoCaptioner!",
   "main": "main.js",
   "scripts": {
@@ -30,7 +30,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "graphyarty"
+            "name": "fotocaptioner"
           }
         },
         {
