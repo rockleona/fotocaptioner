@@ -35,31 +35,40 @@
                                 <div class="col-12">
                                     <h1>Photo Loader</h1>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-3">
                                     <img id="img-photo" src="./asset/example.jpg" class="rounded img-fluid" alt="Select your photo.">
                                 </div>
-                                <div class="col-12 d-grid gap-2">
-                                    <button type="button" class="btn btn-light" id="button-select-photo"><b>Select Photo</b></button>
-                                    <button type="button" class="btn btn-danger" id="button-demo"><b>Read Photo and Generate Text</b></button>
+                                <div class="col-12 mb-3">
+                                    <div class="btn-group d-flex" role="group">
+                                        <button type="button" class="btn btn-light" id="button-select-photo"><b>Select Photo</b></button>
+                                        <button type="button" class="btn btn-primary" id="button-demo"><b>Read EXIF data</b></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 col-lg-4" id="right-side-container">
-                            <div class="row gy-5 px-1">
+                            <div class="row gy-3 px-1">
                                 <div class="col-12">
-                                    <div class="row" id='container-reader'>
+                                    <div class="row" id='container-config'>
                                         <div class="col-12">
                                             <h1>Caption Config</h1>
                                         </div>
                                         <div class="col-12">
                                             <form>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text">Title</span>
-                                                    <input type="text" class="form-control" placeholder="What a beautiful pic!">
-                                                  </div>
-                                                <div class="input-group">
-                                                    <span class="input-group-text">Content</span>
-                                                    <textarea class="form-control" placeholder="What a beautiful pic!"></textarea>
+                                                <div class="form-floating m-2 w-100">
+                                                    <input type="text" class="form-control" id="inputTitle" placeholder=" ">
+                                                    <label class="text-black" for="inputTitle">Title</label>
+                                                </div>
+                                                <div class="form-floating m-2 w-100">
+                                                    <input type="text" class="form-control" id="inputContent" placeholder=" ">
+                                                    <label class="text-black" for="inputContent">Content</label>
+                                                </div>
+                                                <div class="input-group m-2 d-flex">
+                                                    <span class="input-group-text">#</span>
+                                                    <input type="text" class="form-control" placeholder="Hashtag" aria-describedby="hashtag-add" id="hashtag-text">
+                                                    <button class="btn btn-outline-light" type="button" id="hashtag-add">Add</button>
+                                                </div>
+                                                <div class="m-2" id="container-hashtag">
                                                 </div>
                                             </form>
                                         </div>
@@ -68,7 +77,7 @@
                                 <div class="col-12">
                                     <div class="row" id='container-reader'>
                                         <div class="col-12">
-                                            <h1>Reader</h1>
+                                            <h1>EXIF Reader</h1>
                                         </div>
                                         <div class="col-12">
                                             <ul>
@@ -79,12 +88,18 @@
                                                 <li id="photo-fl">Focal Length : </li>
                                             </ul>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row" id='container-reader'>
                                         <div class="col-12">
-                                            <!-- <h3>Metadata :</h3>
-                                            <p id="p-metadata"></p> -->
+                                            <h1>Caption Preview</h1>
                                         </div>
-                                        <div class="col-12 d-grid gap-2">
-                                            <button type="button" class="btn btn-light" id="button-copy-text"><b>Copy Text</b></button>
+                                        <div class="col-12 m-2">
+                                            <div class="btn-group d-flex" role="group">
+                                                <button type="button" class="btn btn-warning" id="button-preview">Preivew</button>
+                                                <button type="button" class="btn btn-primary" id="button-copy-text">Copy</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,8 +109,8 @@
                 </div>
             </main>
 
-            <div class="position-fixed bottom-0 end-0 p-3" id="toast-container">
-                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="position-fixed bottom-0 end-0 p-3" id="container-toast">
+                <div id="toast-copy" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body text-black">
                             Successful copy text !
@@ -103,15 +118,24 @@
                         <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
                 </div>
-              </div>
+            </div>
+            <div class="position-fixed bottom-0 end-0 p-3" id="container-preview">
+                <div id="toast-preview" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body text-black" id="toast-preview-text">
+                        </div>
+                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
 
             <footer class="mt-auto text-white-50 text-center">
-                <p>Made by <a class="text-white" href="https://rockleona.github.io/intro">RockLeona</a> with ♥.</p>
+                <p>Made by <a class="text-white" href="https://rockleona.github.io/intro" target="_blank">RockLeona</a> with ♥.</p>
             </footer>
         </div>
     </body>
     <script src="../node_modules/exif-js/exif.js"></script>
     <script src="./script/generator/frontend.js"></script>
     <script src="./script/generator/photo_loader.js"></script>
-    <script src="./script/generator/copy_text.js"></script>
+    <script src="./script/generator/captioner.js"></script>
 </html>

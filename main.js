@@ -15,7 +15,6 @@ function createWindow () {
     win.maximize();
     win.setMenuBarVisibility(false);
     win.loadFile('template/index.html');
-    win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
